@@ -8,10 +8,27 @@
 ### 一、配置信息
 * 运行平台:windows/linux
 * python version:3.6
-* 前端框架:vue
-* 后端框架:django
+* 前端框架:vue 2.9.6
+* 后端框架:django 3.0
 * 数据库:mongodb,mysql
+* 依赖库；django、numpy、pandas、sklearn、matplotlib、mongoengine
 
 ### 二、目录结构
-- Datasets:存放上传的数据（格式支持:csv、xlsx）    
-    - Datasets/hour.csv 为样例数据
+├─Auto_maching_learning    
+│  │  asgi.py    
+│  │  settings.py   
+│  │  urls.py   
+│  │  wsgi.py   
+│  │  __init__.py   
+│   
+│          
+├─Datasets                //   存放数据集文件   
+│  │  hour.csv       //样例数据
+│      
+└─templates   
+    │  
+    │index.html  
+    │  
+    └─static    
+     
+     
