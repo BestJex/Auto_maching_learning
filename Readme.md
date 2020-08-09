@@ -14,21 +14,36 @@
 * 依赖库；django、numpy、pandas、sklearn、matplotlib、mongoengine
 
 ### 二、目录结构
+
 ├─Auto_maching_learning    
 │  │  asgi.py    
-│  │  settings.py   
-│  │  urls.py   
-│  │  wsgi.py   
-│  │  __init__.py   
-│   
-│          
-├─Datasets                //   存放数据集文件   
-│  │  hour.csv       //样例数据
-│      
-└─templates   
-    │  
-    │index.html  
-    │  
-    └─static    
-     
-     
+│  │  settings.py    
+│  │  urls.py    
+│  │  wsgi.py    
+│  │  __init__.py    
+│  │  
+├─Datasets    
+│      hour.csv    
+├─model_selection    
+│  │  admin.py    
+│  │  apps.py    
+│  │  models.py    
+│  │  tests.py    
+│  │  urls.py    
+│  │  views.py    
+│  │  __init__.py    
+│  │  
+│  ├─migrations    
+    
+│              
+└─templates    
+    └─dist    
+        │  .gitkeep    
+        │  index.html    
+        │      
+        └─static    
+            
+│  manage.py    
+│  Readme.md    
+
+           

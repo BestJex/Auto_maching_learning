@@ -1,0 +1,81 @@
+文件夹 PATH 列表
+卷序列号为 FE77-075D
+E:.
+│  manage.py
+│  Readme.md
+│  tree.txt
+│  
+├─.idea
+│      Auto_maching_learning.iml
+│      encodings.xml
+│      misc.xml
+│      modules.xml
+│      vcs.xml
+│      workspace.xml
+│      
+├─Auto_maching_learning
+│  │  asgi.py
+│  │  settings.py
+│  │  urls.py
+│  │  wsgi.py
+│  │  __init__.py
+│  │  
+│  └─__pycache__
+│          settings.cpython-36.pyc
+│          urls.cpython-36.pyc
+│          wsgi.cpython-36.pyc
+│          __init__.cpython-36.pyc
+│          
+├─Datasets
+│      hour.csv
+│      
+├─model_selection
+│  │  admin.py
+│  │  apps.py
+│  │  models.py
+│  │  tests.py
+│  │  urls.py
+│  │  views.py
+│  │  __init__.py
+│  │  
+│  ├─migrations
+│  │  │  __init__.py
+│  │  │  
+│  │  └─__pycache__
+│  │          __init__.cpython-36.pyc
+│  │          
+│  └─__pycache__
+│          admin.cpython-36.pyc
+│          models.cpython-36.pyc
+│          urls.cpython-36.pyc
+│          views.cpython-36.pyc
+│          __init__.cpython-36.pyc
+│          
+└─templates
+    └─dist
+        │  .gitkeep
+        │  index.html
+        │  
+        └─static
+            ├─css
+            │      app.3361d7bbabe138c55db74b24215a4e34.css
+            │      app.3361d7bbabe138c55db74b24215a4e34.css.map
+            │      
+            ├─fonts
+            │      element-icons.b02bdc1.ttf
+            │      fontawesome-webfont.674f50d.eot
+            │      fontawesome-webfont.af7ae50.woff2
+            │      fontawesome-webfont.b06871f.ttf
+            │      fontawesome-webfont.fee66e7.woff
+            │      
+            ├─img
+            │      fontawesome-webfont.912ec66.svg
+            │      
+            └─js
+                    app.dbdcf4c88240953983c9.js
+                    app.dbdcf4c88240953983c9.js.map
+                    manifest.479b48944e6386c95cc0.js
+                    manifest.479b48944e6386c95cc0.js.map
+                    vendor.1fd4135be7aa5a5a84ae.js
+                    vendor.1fd4135be7aa5a5a84ae.js.map
+                    
