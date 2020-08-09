@@ -57,7 +57,7 @@ ROOT_URLCONF = 'Auto_maching_learning.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates/../templates/dist')]
+        'DIRS': [os.path.join(BASE_DIR, 'templates/dist')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -135,7 +135,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'dist/static')
+    os.path.join(BASE_DIR, 'templates/dist/static')
 ]
 
 
