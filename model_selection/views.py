@@ -6,3 +6,6 @@ from django.shortcuts import render
 def get_datesets_list(request):
     return render(request, "../templates/dist/index.html")
 
+def get_user_list(request):
+    pass
+
