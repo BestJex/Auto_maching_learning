@@ -1,7 +1,8 @@
 '''
 数据操作
-上传数据
-读取数据
+上传数据文件
+选择数据数据
+删除数据文件
 '''
 
 import pymongo
@@ -18,7 +19,7 @@ class data_process():
         '''
 
         :param file_path: 用户上传的文件路径
-        :return:
+        :return:是否成功上传的bool值
         '''
         #文件后缀检查
         postfix=os.path.split(file_path)[-1].split(".")
@@ -34,7 +35,7 @@ class data_process():
         data = {i: df[i].tolist() for i in df.columns}
         #获取传入文件去掉后缀的名称
         file_name=postfix[0]
-        self.collection.update_many({'username':self.username},{"$push":{"dataset":{file_name:data}}})
+        self.collection.update_many({'username':self.username},{"$push":{"dataset":{file_name:data,"name":file_name}}})
         return True
     def get_dataset(self,dataset_name):
         '''
@@ -47,12 +48,17 @@ class data_process():
         self.columns=my_dataset.keys()
         return pd.DataFrame(my_dataset)
 
+    def delete(self,dataset_name):
+        #表结构设计存在问题.
+        self.collection.update({"username":self.username},{"$pull":{"dataset":{"name":dataset_name}}})
 
-# if __name__=="__main__":
-#
-#     path="../Datasets/day.csv"
-#     dp=data_process()
-#     dp.upload(path)
-#     # a=dp.get_dataset("hour")
-#     # print(pd.DataFrame(a))
+
+#if __name__=="__main__":
+
+    # path="../Datasets/day.csv"
+    # dp=data_process()
+    # dp.delete("hour")#删除admin用户下的hour文件
+    # dp.upload(path)#将day.csv上传
+    # a=dp.get_dataset("hour")
+    # print(pd.DataFrame(a))
 
