@@ -14,6 +14,7 @@ class data_process():
         self.client = pymongo.MongoClient(url, port)
         self.collection=self.client[database][collection]
         self.username=username
+        self.user = self.collection.find_one({"username": self.username})
         self.columns=[]
     def upload(self,file_path):
         '''
@@ -43,13 +44,12 @@ class data_process():
         :param dataset_name:
         :return: 获取数据集转换为DataFrame
         '''
-        user=self.collection.find_one({"username":self.username})
-        my_dataset=user['dataset'][dataset_name]
+        my_dataset=self.user['dataset'][dataset_name]
         self.columns=my_dataset.keys()
         return pd.DataFrame(my_dataset)
 
     def delete(self,dataset_name):
-        #表结构设计存在问题.
+
         self.collection.update({"username":self.username},{"$pull":{"dataset":{"name":dataset_name}}})
 
 
