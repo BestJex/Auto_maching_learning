@@ -11,6 +11,8 @@ class UserModel(mongoengine.Document):
     email= mongoengine.StringField(max_length=16)
     authority=mongoengine.BooleanField(default=False)#会员权限
     dataset=mongoengine.ListField()
+
+
 #
 # import pandas as pd
 # import os

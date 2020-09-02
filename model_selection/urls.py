@@ -7,5 +7,5 @@ app_name = 'modelSelection'
 urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html')),
     path('index/', TemplateView.as_view(template_name='index.html')),
-    path('#/table/',get_data_list)
+    path('get_data_list',get_data_list)
 ]
