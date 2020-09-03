@@ -1,18 +1,16 @@
-from sklearn.model_selection import train_test_split
-from codes.evaluation import *
-import pandas as pd
-import numpy as np
 
-{}
 
-FILE_PATH={}#dataset_name
+# FILE_PATH={}#dataset_name
+# FEATURES={}
+# TARGET={}
+# MODEL={}
 if FILE_PATH.split('.')[-1]=='xls' or FILE_PATH.split('.')[-1]=='xlsx':
     DF=pd.read_excel(FILE_PATH)
 else:
     DF=pd.read_csv(FILE_PATH)
-MODEL={}
-y =DF[{}]
-X = DF[{}]
+
+y =DF[TARGET]
+X = DF[FEATURES]
 # 划分数据集
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
 X.apply()

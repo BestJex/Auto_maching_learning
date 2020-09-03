@@ -9,7 +9,7 @@ import pymongo
 import pandas as pd
 from model_selection.models import UserModel
 import os
-class data_process():
+class dataset_process():
     def __init__(self,url="localhost",port=27017,database="AML",collection="user_model",username="admin"):
         self.client = pymongo.MongoClient(url, port)
         self.collection=self.client[database][collection]
@@ -44,21 +44,27 @@ class data_process():
         :param dataset_name:
         :return: 获取数据集转换为DataFrame
         '''
-        my_dataset=self.user['dataset'][dataset_name]
-        self.columns=my_dataset.keys()
+        my_dataset =None
+        for name in self.user['dataset']:
+            if name['name']==dataset_name:
+                my_dataset=name[dataset_name]
+                break
+
+        self.columns=list(my_dataset.keys())
         return pd.DataFrame(my_dataset)
 
     def delete(self,dataset_name):
 
         self.collection.update({"username":self.username},{"$pull":{"dataset":{"name":dataset_name}}})
 
+#
+# if __name__=="__main__":
+#
+#     path="../Datasets/day.csv"
+#     dp=dataset_process()
+#     # dp.delete("hour")#删除admin用户下的hour文件
+#     dp.upload(path)#将day.csv上传
+#     a=dp.get_dataset("hour")
+#     print(pd.DataFrame(a))
 
-#if __name__=="__main__":
-
-    # path="../Datasets/day.csv"
-    # dp=data_process()
-    # dp.delete("hour")#删除admin用户下的hour文件
-    # dp.upload(path)#将day.csv上传
-    # a=dp.get_dataset("hour")
-    # print(pd.DataFrame(a))
 

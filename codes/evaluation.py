@@ -8,9 +8,6 @@ from sklearn.metrics import roc_curve, auc,recall_score  #
 
 # 绘制混淆矩阵函数
 
-
-
-
 # 模型性能评估
 def model_performance_evaluation(model_name, test, pred, spend_time):
     acc = accuracy_score(test, pred)
