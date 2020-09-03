@@ -1,4 +1,3 @@
-# 绘制ROC曲线
 def plot_ROC_curve(y_test, y_predict):
     false_positive_rate, true_positive_rate, thresholds = roc_curve(y_test, y_predict)
     roc_auc = auc(false_positive_rate, true_positive_rate)

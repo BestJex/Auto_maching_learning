@@ -13,13 +13,13 @@ y =DF[TARGET]
 X = DF[FEATURES]
 # 划分数据集
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
-X.apply()
+
 
 # 模型训练
 model = MODEL.fit(X_train, y_train)
 #预测
 y_pred = model.predict(X_test)
-#模型评估
+# 模型评估
 # 绘制混淆矩阵
 cnf_matrix = confusion_matrix(y_test, y_pred)
 np.set_printoptions(precision=len(y.unique))  # 设置打印数量的阈值

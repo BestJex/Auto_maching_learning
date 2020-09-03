@@ -82,35 +82,38 @@ class SetModel():
         '''拼接代码文件'''
         try:
             f = open(os.path.join(self.code_files,code_path), 'r',encoding=encoding)
-            self.generate += f.read()
+            self.generate += f.read()+'\n'
         except:
             f = open(os.path.join(self.code_files, code_path), 'r', encoding='gbk')
-            self.generate += f.read()
+            self.generate += f.read()+'\n'
 
     def get_code(self):
         '''生成代码'''
-        #拼接导入的库
+        # 拼接导入的库
         self.joint_code('ImportPackages.py')
         self.generate+='\n'+MODEL_DICT[self.model_type][self.model_name]+'\n'
 
-        #拼接函数评估方法
+        # 拼接函数评估方法
         for method in self.evaluate_methods:
             self.joint_code(MODEL_DICT[method])
 
-        #拼接变量
+        # 拼接变量
         sklearn_model = MODEL_DICT[self.model_type][self.model_name].split(' ')[-1] + '()'
         self.generate+='''
 FILE_PATH='{}'\n
 FEATURES={}\n
-TARGET={}\n
+TARGET='{}'\n
 MODEL={}\n
         '''.format(self.dataset_name, self.features, self.target, sklearn_model)
         #拼接主函数
         self.joint_code('Main.py')
-        with open('generate.py','w') as f:
+
+        #生成代码文件
+        with open('generate.py','w',encoding='utf-8') as f:
             f.write(self.generate)
+        f.close()
 
 
 if __name__=='__main__':
-    myModel=SetModel('day',['cnt','yr','weekday'],'season','分类','决策树',['混淆矩阵','ROC曲线'])
+    myModel=SetModel('day','season','cnt;yr;weekday','分类','决策树',['混淆矩阵','ROC曲线'])
     myModel.get_code()
